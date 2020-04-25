@@ -24,3 +24,6 @@ yarn-error.log*
 
 # IntelliJ Platforms
 .idea
+
+# local
+_*

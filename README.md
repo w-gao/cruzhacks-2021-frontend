@@ -9,4 +9,11 @@ Date: 04/26/2020
 
 ## Dependencies
 
+Core
 - React.js
+
+Theme
+- Material
+
+Unit Testing
+- Jest

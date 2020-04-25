@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Button } from '@material-ui/core';
+import './index.scss';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <React.Fragment>
+
+      <Button color="primary">Hello World</Button>
+
+  </React.Fragment>,
   document.getElementById('root')
 );
 
