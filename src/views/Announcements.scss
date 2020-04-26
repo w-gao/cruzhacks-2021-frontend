@@ -1,0 +1,27 @@
+
+.header {
+  font-size: 44px;
+  line-height: 53px;
+  letter-spacing: 0.04em;
+  text-indent: 3px;
+
+  color: #FFFFFF;
+
+  text-shadow: -1px 1px 0 #5252E2,
+    1px 1px 0 #5252E2,
+    1px -1px 0 #5252E2,
+    -1px -1px 0 #5252E2;
+}
+
+.content {
+  margin: 0 50px;
+  padding: 0 50px;
+}
+
+.announcementGroup {
+  background: #fcfcfc;
+  margin: 40px 0;
+  padding: 40px 30px;
+  text-align: center;
+
+}

@@ -1,15 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from '@material-ui/core';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
+import Announcements from "./views/Announcements";
+import API from "./api/API";
+import Register from "./views/Register";
+
 
 ReactDOM.render(
-  <React.Fragment>
+    <BrowserRouter>
+        <Switch>
+            <Route path="/register" exact render={props => <Register {...props} />}/>
+            <Route path="/announcements" exact render={props => <Announcements {...props} />}/>
 
-      <Button color="primary">Hello World</Button>
-
-  </React.Fragment>,
+            {API.isRegistered() ? <Redirect to="/announcements" /> : <Redirect to="/register" />}
+        </Switch>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
