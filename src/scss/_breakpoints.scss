@@ -1,0 +1,23 @@
+/* Responsive breakpoints */
+
+$breakpoints: (
+        'small'  : 376px,
+        'medium' : 426px,
+        'large'  : 769px,
+);
+
+@mixin breakpoint-small {
+  $max-value: map-get($breakpoints, medium) - 1;
+
+  @media (max-width: $max-value) {
+    @content;
+  }
+}
+
+@mixin breakpoint-medium {
+  $max-value: map-get($breakpoints, large) - 1;
+
+  @media (max-width: $max-value) {
+    @content;
+  }
+}

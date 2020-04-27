@@ -1,5 +1,5 @@
 import React from 'react';
-import './Container.scss'
+import '../scss/components/Container.scss'
 
 export default class Container extends React.Component {
 
@@ -9,7 +9,11 @@ export default class Container extends React.Component {
 
         return (
             <div className="container">
-                {children}
+                <div className="content">
+
+                    {children}
+
+                </div>
             </div>
         )
     }

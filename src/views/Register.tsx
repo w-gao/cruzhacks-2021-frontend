@@ -33,7 +33,7 @@ export default class Register extends React.Component<IProps, IState> {
 
                 <Container>
 
-                    <h2>Register</h2>
+                    <h1>Register</h1>
 
                     <a href="/" onClick={() => API.register([])}>Register
                     </a>

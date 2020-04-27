@@ -1,6 +1,6 @@
 import React from "react";
 import API from "../api/API";
-import '../views/Announcements.scss';
+import '../scss/views/Announcements.scss';
 
 interface IProps {
 }
@@ -30,7 +30,12 @@ export default class AnnouncementLoader extends React.Component<IProps, IState> 
 
         if (this.state.loading) {
             return (
-                <div>Loading</div>
+                <div className="announcementGroup">
+
+                    <h3 className="announcementTitle">
+                        Loading
+                    </h3>
+                </div>
             )
         }
 
@@ -46,7 +51,7 @@ export default class AnnouncementLoader extends React.Component<IProps, IState> 
         for (let i = 0; i < announcements.length; i++) {
             let announcement: any = announcements[i]
             items.push(
-                <div key={i} className="announcementGroup">
+                <div key={i} className="announcementGroup slide-left">
 
                     <p className="announcementDate">
                         {announcement.time}

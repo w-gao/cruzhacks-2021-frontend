@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import './scss/index.scss';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
 import Announcements from "./views/Announcements";

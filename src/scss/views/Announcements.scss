@@ -1,0 +1,56 @@
+@import '../variables';
+@import '../breakpoints';
+
+.header {
+  font-size: 44px;
+  line-height: 53px;
+  letter-spacing: 0.04em;
+  text-indent: 3px;
+
+  color: #FFFFFF;
+
+  text-shadow: -1px 1px 0 $theme-2,
+    1px 1px 0 $theme-1,
+    1px -1px 0 $theme-1,
+    -1px -1px 0 $theme-1;
+}
+
+.announcementGroup {
+  background: #fcfcfc;
+  margin-bottom: 50px;
+  padding: 40px 0px;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+
+  border-top: 5px solid $theme-1;
+  border-left: 5px solid $theme-1;
+  border-radius: 0 0 10px 0;
+}
+
+.announcementDate {
+  padding: 10px;
+}
+
+.announcementTitle {
+  padding: 10px;
+}
+
+@include breakpoint-medium {
+
+  .announcementGroup {
+    margin-bottom: 20px;
+    padding: 30px 0;
+  }
+}
+
+@include breakpoint-small {
+
+  .announcementDate {
+    font-size: 18px;
+  }
+
+  .announcementTitle {
+    font-size: 14px;
+  }
+}

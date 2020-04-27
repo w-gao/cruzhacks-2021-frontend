@@ -1,5 +1,5 @@
 import React from "react";
-import './Announcements.scss'
+import '../scss/views/Announcements.scss'
 import Header from "../components/Header";
 import Container from "../components/Container";
 import API from "../api/API";
@@ -19,11 +19,9 @@ export default class Announcements extends React.Component {
                 <Header/>
                 <Container>
 
-                    <div className="content">
-                        <div className="header">Announcements</div>
+                    <h1>Announcements</h1>
 
-                        <AnnouncementLoader/>
-                    </div>
+                    <AnnouncementLoader/>
 
 
                 </Container>

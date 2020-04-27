@@ -1,0 +1,39 @@
+@import '../breakpoints';
+
+body {
+  background: #F2F0FF;
+}
+
+.container {
+  //margin: auto;
+  //padding: 50px;
+  margin: 50px;
+}
+
+.content {
+  padding: 0 50px;
+  display: block;
+  width: auto;
+}
+
+@include breakpoint-medium {
+
+  .container {
+    margin: 30px;
+  }
+
+  .content {
+    padding: 0 30px;
+  }
+}
+
+@include breakpoint-small {
+
+  .container {
+    margin: 10px;
+  }
+
+  .content {
+    padding: 0 20px;
+  }
+}

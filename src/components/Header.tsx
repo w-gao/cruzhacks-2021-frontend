@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.scss'
+import '../scss/components/Header.scss'
 import API from "../api/API";
 
 export default class Header extends React.Component {
@@ -8,9 +8,13 @@ export default class Header extends React.Component {
 
         return (
 
-            <header className="justify-content-between">
-                <div className="logo"/>
-                <div className="info">Dashboard</div>
+            <header>
+
+                <div className="brand">
+                    {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+                    <a className="logo" href="/"/>
+                    <div className="page">Dashboard</div>
+                </div>
 
                 {API.isRegistered() &&
                 <div className="align-right">
