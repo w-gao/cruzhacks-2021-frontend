@@ -1,9 +1,10 @@
 
 // Import modules
-@import 'resets';
-@import 'skeleton.css';
-
 @import 'variables';
+
+@import 'resets';
+@import 'skeleton';
+
 @import 'animations';
 @import 'breakpoints';
 
@@ -14,7 +15,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #F2F0FF;
+  background: $color-bg;
 }
 
 code {
@@ -25,4 +26,10 @@ code {
 // Update headers to CruzHacks theme color
 h1, h2, h3, h4, h5, h6 {
   color: $theme-3;
+}
+
+.align-right {
+  position: absolute;
+  left: auto;
+  right: 0;
 }

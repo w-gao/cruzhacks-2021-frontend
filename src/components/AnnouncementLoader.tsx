@@ -19,6 +19,7 @@ export default class AnnouncementLoader extends React.Component<IProps, IState> 
 
     constructor(props: IProps) {
         super(props);
+
         this.state = {
             loading: true,
             announcements: null
@@ -37,16 +38,16 @@ export default class AnnouncementLoader extends React.Component<IProps, IState> 
 
         if (this.state.loading) {
             return (
-                <div className="announcementGroup">
-                    <h3 className="announcementTitle">Loading...</h3>
+                <div className="announcement">
+                    <h3 className="announcement-title">Loading...</h3>
                 </div>
             )
         }
 
         if (this.state.announcements == null) {
             return (
-                <div className="announcementGroup">
-                    <h3 className="announcementTitle">Oh noes! An error occurred :(</h3>
+                <div className="announcement">
+                    <h3 className="announcement-title">Oh noes! An error occurred :(</h3>
                 </div>
             )
         }
@@ -57,13 +58,13 @@ export default class AnnouncementLoader extends React.Component<IProps, IState> 
         for (let i = 0; i < announcements.length; i++) {
             let announcement: any = announcements[i]
             items.push(
-                <div key={i} className="announcementGroup slide-left">
+                <div key={i} className="announcement slide-left">
 
-                    <p className="announcementDate">
+                    <p className="announcement-date">
                         {announcement.time}
                     </p>
 
-                    <h3 className="announcementTitle">
+                    <h3 className="announcement-title">
                         {announcement.text}
                     </h3>
                 </div>

@@ -41,9 +41,6 @@ export default class Register extends React.Component<IProps, IState> {
 
                     <RegistrationForm/>
 
-                    <a href="/" onClick={() => API.register([])}>Register
-                    </a>
-
                 </Container>
 
             </React.Fragment>

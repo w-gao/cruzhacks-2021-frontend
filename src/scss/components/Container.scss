@@ -4,18 +4,12 @@
   padding: 50px;
   display: block;
   width: auto;
-}
 
-@include breakpoint-medium {
-
-  .content {
+  @include breakpoint-medium {
     padding: 30px;
   }
-}
 
-@include breakpoint-small {
-
-  .content {
+  @include breakpoint-small {
     padding: 20px;
   }
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import '../scss/components/Container.scss'
 
 /**
- * Container for all views. Uses styling from skeleton.css.
+ * Container for all views. Uses styling from skeleton.scss.
  */
 export default class Container extends React.Component {
 

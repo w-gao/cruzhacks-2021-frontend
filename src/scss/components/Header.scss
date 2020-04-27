@@ -22,18 +22,16 @@ header {
 
     .page {
       margin: 24px 0;
-
+      color: $theme-2;
       letter-spacing: 0.04em;
       text-indent: 3px;
-
-      color: $theme-2;
     }
   }
 
   .logout {
     text-decoration: none;
 
-    div {
+    > div {
       margin: 15px 18px 16px 0;
       padding: 6px 0 10px 0;
       width: 124px;
@@ -46,23 +44,16 @@ header {
       border: 2px solid $theme-1;
       box-sizing: border-box;
       border-radius: 30px;
-    }
 
-    div:hover, div:active {
-      background: #f8f8f8;
-      cursor: pointer;
-    }
-  }
+      &:hover, &:active {
+        background: #f8f8f8;
+        cursor: pointer;
+      }
 
-  @include breakpoint-small {
-    .logout {
-      width: 110px;
+      @include breakpoint-small {
+        width: 110px;
+      }
     }
   }
 }
 
-.align-right {
-  position: absolute;
-  left: auto;
-  right: 0;
-}
