@@ -6,6 +6,9 @@ import API from "../api/API";
 import {Redirect} from "react-router-dom";
 import AnnouncementLoader from "../components/AnnouncementLoader";
 
+/**
+ * Announcements View
+ */
 export default class Announcements extends React.Component {
 
     public render() {

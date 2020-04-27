@@ -10,6 +10,11 @@ interface IState {
     announcements: null | object;
 }
 
+/**
+ * AnnouncementLoader
+ *
+ * Fetches announcements from the API and display the data accordingly.
+ */
 export default class AnnouncementLoader extends React.Component<IProps, IState> {
 
     constructor(props: IProps) {

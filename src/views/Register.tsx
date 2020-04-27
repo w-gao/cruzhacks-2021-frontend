@@ -12,6 +12,9 @@ interface IState {
     redirect: boolean
 }
 
+/**
+ * Register View
+ */
 export default class Register extends React.Component<IProps, IState> {
 
     constructor(props: IProps) {
