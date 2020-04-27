@@ -12,6 +12,10 @@ Check the design specification [here](https://github.com/CruzHacks/cruzhacks-org
 
 ## Usage
 
+- **NOTE:** You can get a preview of the master branch by visiting [here](https://cruzhacks-2021-frontend.wlgao.com/announcements)!
+  
+- If you want to run locally, clone this repo and run `npm install && npm start` (just like any other React project).
+
 ## Design
 
 
@@ -20,9 +24,7 @@ Check the design specification [here](https://github.com/CruzHacks/cruzhacks-org
 Core
 - React.js
 - react-hook-form
-
-Theme
-- Material
+- skeleton.css
 
 Unit Testing
 - Jest
