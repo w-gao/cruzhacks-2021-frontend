@@ -7,7 +7,6 @@ interface IProps {
 
 interface IState {
     loading: boolean
-    error: boolean;
     announcements: null | object;
 }
 
@@ -17,12 +16,15 @@ export default class AnnouncementLoader extends React.Component<IProps, IState> 
         super(props);
         this.state = {
             loading: true,
-            error: false,
             announcements: null
         };
+    }
 
+    public componentDidMount() {
+
+        // fetch announcements
         API.getAnnouncements((announcements: null | string[]) => {
-            this.setState({loading: false, error: announcements == null, announcements: announcements})
+            this.setState({loading: false, announcements: announcements})
         })
     }
 
@@ -31,17 +33,16 @@ export default class AnnouncementLoader extends React.Component<IProps, IState> 
         if (this.state.loading) {
             return (
                 <div className="announcementGroup">
-
-                    <h3 className="announcementTitle">
-                        Loading
-                    </h3>
+                    <h3 className="announcementTitle">Loading...</h3>
                 </div>
             )
         }
 
-        if (this.state.error || this.state.announcements == null) {
+        if (this.state.announcements == null) {
             return (
-                <div>Error</div>
+                <div className="announcementGroup">
+                    <h3 className="announcementTitle">Oh noes! An error occurred :(</h3>
+                </div>
             )
         }
 

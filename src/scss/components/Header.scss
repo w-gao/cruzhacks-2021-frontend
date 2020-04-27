@@ -30,7 +30,7 @@ header {
     }
   }
 
-  .button {
+  .logout {
     text-decoration: none;
 
     div {
@@ -55,7 +55,7 @@ header {
   }
 
   @include breakpoint-small {
-    .button {
+    .logout {
       width: 110px;
     }
   }

@@ -5,14 +5,10 @@ export default class Container extends React.Component {
 
     public render() {
 
-        let children = this.props.children;
-
         return (
             <div className="container">
                 <div className="content">
-
-                    {children}
-
+                    {this.props.children}
                 </div>
             </div>
         )

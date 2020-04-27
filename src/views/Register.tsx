@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Container from "../components/Container";
 import API from "../api/API";
 import {Redirect} from "react-router-dom";
+import RegistrationForm from "../components/RegistrationForm";
 
 interface IProps {
 }
@@ -34,6 +35,8 @@ export default class Register extends React.Component<IProps, IState> {
                 <Container>
 
                     <h1>Register</h1>
+
+                    <RegistrationForm/>
 
                     <a href="/" onClick={() => API.register([])}>Register
                     </a>

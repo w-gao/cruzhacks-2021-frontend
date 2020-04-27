@@ -18,11 +18,12 @@ export default class Header extends React.Component {
 
                 {API.isRegistered() &&
                 <div className="align-right">
-                    <a href="/" className="button" onClick={API.logout}>
+                    <a href="/" className="logout" onClick={API.logout}>
                         <div>Logout</div>
                     </a>
                 </div>
                 }
+
             </header>
         )
     }

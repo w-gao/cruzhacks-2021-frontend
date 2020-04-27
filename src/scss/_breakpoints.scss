@@ -1,9 +1,9 @@
 /* Responsive breakpoints */
 
 $breakpoints: (
-        'small'  : 376px,
-        'medium' : 426px,
-        'large'  : 769px,
+        'small'  : 400px,
+        'medium' : 550px,
+        'large'  : 750px,
 );
 
 @mixin breakpoint-small {

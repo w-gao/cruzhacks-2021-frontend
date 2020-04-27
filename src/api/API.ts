@@ -1,11 +1,14 @@
 
 /**
+ * All functions that require interfacing with the API
  *
+ * All attributes and methods are static (can be accessed via `API.xxx`)
+ * Instantiation is not required for now.
  */
 class API {
 
     /**
-     *
+     * CruzHacks HTTP EndPoint
      */
     private static API_ENDPOINT = 'https://us-central1-cruzhacks-test-challenge-65ccc.cloudfunctions.net/'
 
@@ -15,6 +18,10 @@ class API {
      */
     private static CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
 
+    /**
+     *
+     * @param payload
+     */
     public static register(payload: []): boolean {
 
 
@@ -42,18 +49,21 @@ class API {
         localStorage.setItem('registered', 'false')
     }
 
+    /**
+     * Fetch all announcement for the current user.
+     * Takes in a callback function when data are available. No return value should be expected.
+     *
+     * @param callback `announcements` is null when an error has occurred
+     */
     public static getAnnouncements(callback: (announcements: null | string[]) => void) {
 
         fetch(this.CORS_PROXY + this.API_ENDPOINT + 'getDB')
             .then(response => response.json())
             .then(data => {
-
                 callback(Object.values(data.results))
-
             })
             .catch((error) => {
                 console.error(error)
-
                 callback(null)
             })
     }
