@@ -5,7 +5,7 @@ export interface Inputs {
     age: number | undefined,
     gender: string | undefined,
     genderOther: string | undefined,
-    yearOfGraduation: string | undefined,
+    yearOfGrad: string | undefined,
     ucscStudent: boolean | undefined,
     collegeAffiliation: string | undefined,
 
@@ -22,7 +22,7 @@ export const Inputs: Inputs = {
     age: undefined,
     gender: undefined,
     genderOther: undefined,
-    yearOfGraduation: undefined,
+    yearOfGrad: undefined,
     ucscStudent: undefined,
     collegeAffiliation: undefined,
 

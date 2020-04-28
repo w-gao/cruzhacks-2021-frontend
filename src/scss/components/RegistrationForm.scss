@@ -81,3 +81,16 @@ input[type='submit'] {
     display: block;
   }
 }
+
+.invalid {
+  border: 1px solid $color-error !important;
+}
+
+.invalid-color {
+  color: darken($color-error, 30%);
+}
+
+textarea {
+  resize: none;
+  height: auto !important;
+}

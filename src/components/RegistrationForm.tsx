@@ -20,31 +20,47 @@ export const RegistrationForm = () => {
     const [data, setData] = useState(Inputs);
     const [step, setStep] = useState(1);
 
-    const onSave = (entry: any) => {
-        setData(Object.assign(data, entry))
+
+    const onSave = (updated: any) => {
+
+        setData(Object.assign(data, updated))
     };
 
     const onSubmit = (ev: any) => {
 
-        const validation = validateForm();
-
-        if (validation) {
+        if (validateForm()) {
             API.register(data);
 
-            ev.preventDefault();
+            return;
         }
+
+        console.log('Check for errors!')
+        ev.preventDefault();
     }
 
-    const validateForm = (entry: string | undefined = undefined, value: string | undefined = undefined): boolean => {
+    const validateForm = (): boolean => {
+        let validation = true;
 
-        if (entry === undefined) {
-            // submit validation
+        let check = Object(data);
 
+        let entries = ['firstName', 'lastName', 'age', 'gender',
+            'yearOfGrad', 'ucscStudent', 'firstHackathon',
+            'whyParticipate', 'transportation']
 
-            return false;
-        } else if (value === undefined) {
+        for (let entry in entries) {
+            if (!validateFormEntry(entries[entry], check[entries[entry]])) {
+                validation = false;
+            }
+        }
+
+        return validation;
+    }
+
+    const validateFormEntry = (entry: string, value: string | undefined = undefined): boolean => {
+
+        if (value === undefined || value === "") {
             // not touched yet.
-            return true;
+            return false;
         }
 
         switch (entry) {
@@ -54,11 +70,26 @@ export const RegistrationForm = () => {
             case 'age':
                 return value.length > 0 && value.length < 4;
             case 'gender':
-                return value !== undefined;
-
+                return true;
+            case 'genderOther':
+                return value.length > 0 && value.length < 320
+            case 'yearOfGrad':
+                return value.length > 0 && value.length < 5;
+            case 'ucscStudent':
+                return true;
+            case 'collegeAffiliation':
+                return value.length > 0 && value.length < 20
+            case 'firstHackathon':
+                return true;
+            case 'whyParticipate':
+                return value.length > 0 && value.length < 500
+            case 'transportation':
+                return true;
+            case 'accommodations':
+                return value.length < 150
         }
 
-        return false;
+        return true;
     }
 
     const prevStep = () => {
@@ -69,14 +100,14 @@ export const RegistrationForm = () => {
         if (step < 3) setStep(step + 1)
     }
 
-    console.log(data)
+    // console.log(data)
 
     return (
         <form onBlur={handleSubmit(onSave)} onSubmit={onSubmit}>
 
-            {step === 1 && <StepOne data={data} register={register} validateForm={validateForm}/>}
-            {step === 2 && <StepTwo data={data} register={register} validateForm={validateForm}/>}
-            {step === 3 && <StepThree data={data} register={register} validateForm={validateForm}/>}
+            {step === 1 && <StepOne data={data} register={register} validateForm={validateFormEntry}/>}
+            {step === 2 && <StepTwo data={data} register={register} validateForm={validateFormEntry}/>}
+            {step === 3 && <StepThree data={data} register={register} validateForm={validateFormEntry}/>}
 
 
             {/* Form data are automatically saved */}
@@ -99,8 +130,7 @@ export const RegistrationForm = () => {
                 }
 
                 {step === 3 && <div className="six columns">
-                    <input type="submit" className="button button-primary u-pull-right"
-                       onClick={() => {}}/>
+                    <input type="submit" className="button button-primary u-pull-right"/>
                 </div>}
             </div>
 

@@ -39,8 +39,7 @@ export default class Register extends React.Component<IProps, IState> {
 
                     <h1>Register</h1>
 
-                    {/*<RegistrationForm/>*/}
-                    <RegistrationForm />
+                    <RegistrationForm/>
 
                 </Container>
 
