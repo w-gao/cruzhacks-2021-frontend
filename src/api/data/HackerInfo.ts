@@ -1,34 +1,37 @@
 
 export interface Inputs {
-    firstName: string,
-    lastName: string,
-    age: undefined | number,
-    gender: string,
-    yearOfGraduation: string,
-    ucscStudent: boolean,
-    collegeAffiliation: string,
+    firstName: string | undefined,
+    lastName: string | undefined,
+    age: number | undefined,
+    gender: string | undefined,
+    genderOther: string | undefined,
+    yearOfGraduation: string | undefined,
+    ucscStudent: boolean | undefined,
+    collegeAffiliation: string | undefined,
 
-    firstHackathon: string,
-    whyParticipate: string,
+    firstHackathon: string | undefined,
+    whyParticipate: string | undefined,
 
-    transportation: string,
-    accommodations: string,
+    transportation: string | undefined,
+    accommodations: string | undefined,
 }
 
 export const Inputs: Inputs = {
-    firstName: '',
-    lastName: '',
+    firstName: undefined,
+    lastName: undefined,
     age: undefined,
-    gender: '',
-    yearOfGraduation: '',
-    ucscStudent: false,
-    collegeAffiliation: '',
+    gender: undefined,
+    genderOther: undefined,
+    yearOfGraduation: undefined,
+    ucscStudent: undefined,
+    collegeAffiliation: undefined,
 
-    firstHackathon: '',
-    whyParticipate: '',
+    firstHackathon: undefined,
+    whyParticipate: undefined,
 
-    transportation: '',
-    accommodations: '',
+    transportation: undefined,
+    accommodations: undefined,
+
 }
 
 

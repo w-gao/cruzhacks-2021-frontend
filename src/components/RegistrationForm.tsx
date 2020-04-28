@@ -9,13 +9,13 @@ import StepThree from "./registration/StepThree";
 
 export interface IProps {
     data: any,
-    errors: any,
     register: any,
+    validateForm: any
 }
 
 export const RegistrationForm = () => {
 
-    const {register, errors, handleSubmit} = useForm({mode: "onBlur"});
+    const {handleSubmit, register} = useForm({mode: "onBlur"});
 
     const [data, setData] = useState(Inputs);
     const [step, setStep] = useState(1);
@@ -26,9 +26,39 @@ export const RegistrationForm = () => {
 
     const onSubmit = (ev: any) => {
 
-        API.register(data)
+        const validation = validateForm();
 
-        // ev.preventDefault();
+        if (validation) {
+            API.register(data);
+
+            ev.preventDefault();
+        }
+    }
+
+    const validateForm = (entry: string | undefined = undefined, value: string | undefined = undefined): boolean => {
+
+        if (entry === undefined) {
+            // submit validation
+
+
+            return false;
+        } else if (value === undefined) {
+            // not touched yet.
+            return true;
+        }
+
+        switch (entry) {
+            case 'firstName':
+            case 'lastName':
+                return value.length > 0 && value.length < 100;
+            case 'age':
+                return value.length > 0 && value.length < 4;
+            case 'gender':
+                return value !== undefined;
+
+        }
+
+        return false;
     }
 
     const prevStep = () => {
@@ -44,9 +74,9 @@ export const RegistrationForm = () => {
     return (
         <form onBlur={handleSubmit(onSave)} onSubmit={onSubmit}>
 
-            {step === 1 && <StepOne data={data} errors={errors} register={register}/>}
-            {step === 2 && <StepTwo data={data} errors={errors} register={register}/>}
-            {step === 3 && <StepThree data={data} errors={errors} register={register}/>}
+            {step === 1 && <StepOne data={data} register={register} validateForm={validateForm}/>}
+            {step === 2 && <StepTwo data={data} register={register} validateForm={validateForm}/>}
+            {step === 3 && <StepThree data={data} register={register} validateForm={validateForm}/>}
 
 
             {/* Form data are automatically saved */}
