@@ -4,6 +4,7 @@ $breakpoints: (
         'small'  : 400px,
         'medium' : 550px,
         'large'  : 750px,
+        'xlarge' : 1000px
 );
 
 @mixin breakpoint-small {
@@ -16,6 +17,14 @@ $breakpoints: (
 
 @mixin breakpoint-medium {
   $max-value: map-get($breakpoints, large) - 1;
+
+  @media (max-width: $max-value) {
+    @content;
+  }
+}
+
+@mixin breakpoint-large {
+  $max-value: map-get($breakpoints, xlarge) - 1;
 
   @media (max-width: $max-value) {
     @content;

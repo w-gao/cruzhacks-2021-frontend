@@ -11,7 +11,8 @@ form {
   }
 }
 
-.button {
+.button,
+input[type='submit'] {
   margin: 5px 10px;
   padding: 10px 20px;
   width: auto;
@@ -30,5 +31,48 @@ form {
   &:hover {
     color: $button-color-focus;
     border-color: $button-color-focus;
+  }
+}
+
+#checkbox-input {
+  display: flex;
+  margin: 0 auto;
+  padding: 5px 0;
+
+  > label {
+    font-size: 13px;
+    padding: 0 10px;
+
+    @include breakpoint-large {
+      font-size: 13px;
+      padding: 0 5px;
+    }
+
+    @include breakpoint-medium {
+      font-size: 12px;
+      padding: 0 2px;
+    }
+  }
+
+  input[type='radio'] {
+    -webkit-appearance: none;
+    min-width: 15px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid darkgray;
+    border-radius: 50%;
+    outline: none;
+
+    @include breakpoint-small {
+      display: flex;
+    }
+  }
+
+  input[type='radio']:checked {
+    background: $theme-2;
+  }
+
+  @include breakpoint-small {
+    display: block;
   }
 }

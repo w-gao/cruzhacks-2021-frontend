@@ -1,10 +1,11 @@
-
 /**
  * All functions that require interfacing with the API
  *
  * All attributes and methods are static (can be accessed via `API.xxx`)
  * Instantiation is not required for now.
  */
+import {Inputs} from "./data/HackerInfo";
+
 class API {
 
     /**
@@ -16,14 +17,16 @@ class API {
      * We are using a Proxy because the API doesn't have the 'Access-Control-Allow-Origin'
      * header present. However, this should not be the case with the actual backend.
      */
-    private static CORS_PROXY = 'https://cors-anywhere.herokuapp.com/'
+    private static CORS_PROXY = 'https://thingproxy.freeboard.io/fetch/'
 
     /**
      *
      * @param payload
      */
-    public static register(payload: []): boolean {
+    public static register(payload: Inputs): boolean {
 
+        console.log('registering...')
+        console.log(payload)
 
         // This part would be where we make an API call to store the information. The request
         // status would then be returned. Here we just assume the data is saved magically.
