@@ -2,30 +2,28 @@ import React from 'react';
 import '../scss/components/Header.scss'
 import API from "../api/API";
 
-export default class Header extends React.Component {
+interface IProps {
+    header?: string
+}
 
-    public render() {
+export function Header(props: IProps) {
+    return (
+        <header>
 
-        return (
+            <div className="brand">
+                {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
+                <a className="logo" href="/"/>
+                <div className="page">{props.header || "Dashboard"}</div>
+            </div>
 
-            <header>
+            {API.isRegistered() &&
+            <div className="align-right">
+                <a href="/" className="logout" onClick={API.logout}>
+                    <div>Logout</div>
+                </a>
+            </div>
+            }
 
-                <div className="brand">
-                    {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-                    <a className="logo" href="/"/>
-                    <div className="page">Dashboard</div>
-                </div>
-
-                {API.isRegistered() &&
-                <div className="align-right">
-                    <a href="/" className="logout" onClick={API.logout}>
-                        <div>Logout</div>
-                    </a>
-                </div>
-                }
-
-            </header>
-        )
-    }
-
+        </header>
+    )
 }

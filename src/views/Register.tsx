@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../components/Header";
+import {Header} from "../components/Header";
 import Container from "../components/Container";
 import API from "../api/API";
 import {Redirect} from "react-router-dom";
@@ -32,9 +32,9 @@ export default class Register extends React.Component<IProps, IState> {
 
         return (
             <React.Fragment>
-                <Header/>
+                <Header header="Application"/>
                 <Container>
-                    <h1>Register</h1>
+                    {/*<h1>Register</h1>*/}
                     <RegistrationForm/>
                 </Container>
             </React.Fragment>

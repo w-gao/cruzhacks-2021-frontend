@@ -1,6 +1,6 @@
 import React from "react";
 import '../scss/views/Announcements.scss'
-import Header from "../components/Header";
+import {Header} from "../components/Header";
 import Container from "../components/Container";
 import API from "../api/API";
 import {Redirect} from "react-router-dom";

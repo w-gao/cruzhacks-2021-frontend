@@ -32,6 +32,14 @@ input[type='submit'] {
     color: $button-color-focus;
     border-color: $button-color-focus;
   }
+
+  &:disabled {
+    opacity: 0.4;
+
+    &:hover {
+      opacity: 0.4;
+    }
+  }
 }
 
 input[type='submit'] {

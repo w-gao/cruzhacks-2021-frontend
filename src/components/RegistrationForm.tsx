@@ -198,37 +198,41 @@ export const RegistrationForm = () => {
     }
 
     return (
-        <form onBlur={handleSubmit(onSave)} onSubmit={onSubmit}>
+        <React.Fragment>
+            <h1>{step === 1 ? "Demographics" : step === 2 ? "Experiences" : "Logistics"}</h1>
 
-            {step === 1 && <StepOne data={data} register={register} validateForm={validateFormEntry}/>}
-            {step === 2 && <StepTwo data={data} register={register} validateForm={validateFormEntry}/>}
-            {step === 3 && <StepThree data={data} register={register} validateForm={validateFormEntry}/>}
+            <form onBlur={handleSubmit(onSave)} onSubmit={onSubmit}>
+
+                {step === 1 && <StepOne data={data} register={register} validateForm={validateFormEntry}/>}
+                {step === 2 && <StepTwo data={data} register={register} validateForm={validateFormEntry}/>}
+                {step === 3 && <StepThree data={data} register={register} validateForm={validateFormEntry}/>}
 
 
-            {/* Form data are automatically saved */}
-            {/*<div className="row">*/}
-            {/*    <div className="six columns">*/}
-            {/*        <span className="button" onClick={() => console.log('save')}>SAVE</span>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
+                {/* Form data are automatically saved */}
+                {/*<div className="row">*/}
+                {/*    <div className="six columns">*/}
+                {/*        <span className="button" onClick={() => console.log('save')}>SAVE</span>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
-            <div className="row">
+                <div className="row">
 
-                {step !== 1 && <div className="six columns">
-                    <span className="button" onClick={prevStep}>PREV</span>
+                    {step !== 1 && <div className="six columns">
+                        <span className="button" onClick={prevStep}>PREV</span>
+                    </div>
+                    }
+
+                    {step !== 3 && <div className={(step === 1 ? "twelve" : "six") + " columns"}>
+                        <span className="button u-pull-right" onClick={nextStep}>NEXT</span>
+                    </div>
+                    }
+
+                    {step === 3 && <div className="six columns">
+                        <input type="submit" className="button button-primary u-pull-right" disabled={!validateForm()}/>
+                    </div>}
                 </div>
-                }
 
-                {step !== 3 && <div className={(step === 1 ? "twelve" : "six") + " columns"}>
-                    <span className="button u-pull-right" onClick={nextStep}>NEXT</span>
-                </div>
-                }
-
-                {step === 3 && <div className="six columns">
-                    <input type="submit" className="button button-primary u-pull-right"/>
-                </div>}
-            </div>
-
-        </form>
+            </form>
+        </React.Fragment>
     )
 };
