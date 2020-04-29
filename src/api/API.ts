@@ -20,6 +20,11 @@ class API {
     private static CORS_PROXY = 'https://thingproxy.freeboard.io/fetch/'
 
     /**
+     * If the CORS Proxy doesn't work (because it doesn't periodically ?!), then we use our own proxy.
+     */
+    private static LOCAL_PROXY = 'https://cruzhacks-2021-frontend.wlgao.com/api/'
+
+    /**
      * Register
      *
      * Returns the registration status.
@@ -55,6 +60,24 @@ class API {
         localStorage.setItem('registered', 'false')
     }
 
+    private static getFromUrl(callback: (announcements: null | string[]) => void, url: string, fallbackUrl: string | undefined = undefined) {
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                callback(Object.values(data.results))
+            })
+            .catch((error) => {
+                // console.error(error)
+
+                if (fallbackUrl !== undefined) {
+                    this.getFromUrl(callback, fallbackUrl);
+                } else {
+                    callback(null)
+                }
+            })
+    }
+
     /**
      * Fetch all announcement for the current user.
      * Takes in a callback function when data are available. No return value should be expected.
@@ -63,15 +86,8 @@ class API {
      */
     public static getAnnouncements(callback: (announcements: null | string[]) => void) {
 
-        fetch(this.CORS_PROXY + this.API_ENDPOINT + 'getDB')
-            .then(response => response.json())
-            .then(data => {
-                callback(Object.values(data.results))
-            })
-            .catch((error) => {
-                console.error(error)
-                callback(null)
-            })
+        this.getFromUrl(callback, this.CORS_PROXY + this.API_ENDPOINT + 'getDB',
+            this.LOCAL_PROXY + 'getDB')
     }
 }
 

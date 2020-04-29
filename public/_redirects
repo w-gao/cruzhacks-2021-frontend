@@ -1,1 +1,4 @@
+# API Proxy
+/api/*  https://us-central1-cruzhacks-test-challenge-65ccc.cloudfunctions.net/:splat  200
+
 /*    /index.html   200
