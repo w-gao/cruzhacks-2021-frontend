@@ -9,7 +9,7 @@ Note that only `getAnnouncements()` retrieves information from an actual backend
 Returns whether the user registered or not. 
 
 ## register(payload: string): boolean
-payload: a json string that contains registration information.
+payload: a json string that contains registration information. \
 Returns the registration status. 
 
 ## logout(): void
@@ -23,6 +23,7 @@ Returns a list of announcements the current user has.
 
 ## HackerInfo
 
+```
 Demographics
     First & Last Name,
     Age,
@@ -39,3 +40,4 @@ Experiences
 Logistics
     Could you use help with transportation?
     Do you require any special accommodations?: optional. 
+```

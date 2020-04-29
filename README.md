@@ -18,4 +18,4 @@ Challenge description and design specifications are [here](https://github.com/Cr
 
 ## Design
 
-Deign related notes are available in the [_notes folder](_notes).
+Design related notes are available in the [_notes folder](_notes).
