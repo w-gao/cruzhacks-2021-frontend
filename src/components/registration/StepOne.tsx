@@ -1,5 +1,5 @@
 import React from 'react';
-import {IProps, Input, RadioGroupInput, RadioInput} from "../RegistrationForm";
+import {IProps, Input, RadioGroupInput, RadioInput, SelectInput, SelectInputOption} from "../RegistrationForm";
 
 
 export default function StepOne(props: IProps) {
@@ -24,10 +24,12 @@ export default function StepOne(props: IProps) {
 
             <div className="row">
                 <div className="three columns">
-                    <Input entry={"age"} text={"Age *"} type={"number"} value={data.age} validateForm={validateForm}
-                           register={register}/>
+                    <div className="six columns">
+                        <Input entry={"age"} text={"Age *"} type={"number"} value={data.age} validateForm={validateForm}
+                               register={register}/>
+                    </div>
                 </div>
-                <div className="six columns">
+                <div className="nine columns">
                     <RadioGroupInput entry={"gender"} text={"Gender *"} value={data.gender} validateForm={validateForm}>
                         <RadioInput entry={"female"} text={"Female"} parent={"gender"} value={data.gender}
                                     register={register}/>
@@ -39,15 +41,12 @@ export default function StepOne(props: IProps) {
                                     register={register}/>
                         <RadioInput entry={"other"} text={"Other"} parent={"gender"} value={data.gender}
                                     register={register}/>
+
+                        {data.gender === "other" &&
+                        <Input entry={"genderOther"} text={""} type={"text"} value={data.genderOther}
+                               validateForm={validateForm} register={register}/>}
                     </RadioGroupInput>
                 </div>
-
-                {data.gender === "other" &&
-                <div className="three columns">
-                    <Input entry={"genderOther"} text={"Other *"} type={"text"} value={data.genderOther}
-                           validateForm={validateForm} register={register}/>
-                </div>}
-
             </div>
 
             <div className="row">
@@ -66,9 +65,19 @@ export default function StepOne(props: IProps) {
                 </div>
 
                 {data.ucscStudent === "yes" && <div className="six columns">
-                    <Input entry={"collegeAffiliation"} text={"College Affiliation *"} type={"text"}
-                           value={data.collegeAffiliation} validateForm={validateForm} register={register}/>
-                    {/*    options */}
+                    <SelectInput entry={"collegeAffiliation"} text={"College Affiliation *"}
+                                 value={data.collegeAffiliation} validateForm={validateForm} register={register}>
+                        <SelectInputOption entry={"cowell"} text={"Cowell College"}/>
+                        <SelectInputOption entry={"stevenson"} text={"Stevenson College"}/>
+                        <SelectInputOption entry={"crown"} text={"Crown College"}/>
+                        <SelectInputOption entry={"merrill"} text={"Merrill College"}/>
+                        <SelectInputOption entry={"porter"} text={"Porter College"}/>
+                        <SelectInputOption entry={"kresge"} text={"Kresge College"}/>
+                        <SelectInputOption entry={"oakes"} text={"Oakes College"}/>
+                        <SelectInputOption entry={"rcc"} text={"Rachel Carson College"}/>
+                        <SelectInputOption entry={"c9"} text={"College Nine"}/>
+                        <SelectInputOption entry={"c10"} text={"College Ten"}/>
+                    </SelectInput>
                 </div>}
             </div>
         </React.Fragment>

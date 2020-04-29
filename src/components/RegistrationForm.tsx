@@ -38,6 +38,20 @@ export interface RadioInputProps {
     register: any
 }
 
+export interface SelectInputProps {
+    entry: string,
+    text: string,
+    value: any,
+    validateForm: any,
+    register: any
+    children: any
+}
+
+export interface SelectInputOptionProps {
+    entry: string,
+    text: string
+}
+
 export const Input = (props: InputProps) => {
     return (
         <>
@@ -77,6 +91,26 @@ export const RadioInput = (props: RadioInputProps) => {
     )
 }
 
+export const SelectInput = (props: SelectInputProps) => {
+    return (
+        <>
+            <label htmlFor={props.entry}
+                   className={(!props.validateForm(props.entry, props.value) ? "invalid-color " : "")}>
+                {props.text}</label>
+            <select name={props.entry} className="u-full-width"
+                    defaultValue={props.value} ref={props.register}>
+                {props.children}
+            </select>
+        </>
+    )
+}
+
+export const SelectInputOption = (props: SelectInputOptionProps) => {
+    return (
+        <option value={props.entry}>{props.text}</option>
+    )
+}
+
 
 export const RegistrationForm = () => {
 
@@ -107,7 +141,7 @@ export const RegistrationForm = () => {
         let check = Object(data);
 
         let entries = ['firstName', 'lastName', 'age', 'gender',
-            'yearOfGrad', 'ucscStudent', 'firstHackathon',
+            'ucscStudent', 'firstHackathon',
             'whyParticipate', 'transportation']
 
         for (let entry in entries) {
@@ -129,15 +163,15 @@ export const RegistrationForm = () => {
         switch (entry) {
             case 'firstName':
             case 'lastName':
-                return value.length > 0 && value.length < 100;
+                return value.length > 0 && value.length < 101;
             case 'age':
                 return value.length > 0 && value.length < 4;
             case 'gender':
                 return true;
             case 'genderOther':
-                return value.length > 0 && value.length < 320
+                return value.length > 0 && value.length < 321
             case 'yearOfGrad':
-                return value.length > 0 && value.length < 5;
+                return value.length < 5;
             case 'ucscStudent':
                 return true;
             case 'collegeAffiliation':
@@ -145,11 +179,11 @@ export const RegistrationForm = () => {
             case 'firstHackathon':
                 return true;
             case 'whyParticipate':
-                return value.length > 0 && value.length < 500
+                return value.length > 0 && value.length < 501
             case 'transportation':
                 return true;
             case 'accommodations':
-                return value.length < 150
+                return value.length < 151
         }
 
         return true;
