@@ -28,6 +28,10 @@ h1, h2, h3, h4, h5, h6 {
   color: $theme-3;
 }
 
+p, label {
+  color: darken($theme-3, 15%);
+}
+
 .d-flex {
   display: flex;
 }
@@ -36,4 +40,8 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   left: auto;
   right: 0;
+}
+
+.underline {
+  text-decoration: underline;
 }

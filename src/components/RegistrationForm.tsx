@@ -199,7 +199,7 @@ export const RegistrationForm = () => {
 
     return (
         <React.Fragment>
-            <h1>{step === 1 ? "Demographics" : step === 2 ? "Experiences" : "Logistics"}</h1>
+            <h2 className="underline">{step === 1 ? "Demographics" : step === 2 ? "Experiences" : "Logistics"}</h2>
 
             <form onBlur={handleSubmit(onSave)} onSubmit={onSubmit}>
 
