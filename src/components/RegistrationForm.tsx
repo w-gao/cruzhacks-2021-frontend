@@ -1,7 +1,7 @@
 import {useForm} from "react-hook-form";
 import React, {useState} from "react";
 import '../scss/components/RegistrationForm.scss'
-import {Inputs} from "../api/data/HackerInfo";
+import {HackerInfo} from "../api/data/HackerInfo";
 import StepOne from "./registration/StepOne";
 import StepTwo from "./registration/StepTwo";
 import API from "../api/API";
@@ -13,16 +13,80 @@ export interface IProps {
     validateForm: any
 }
 
+export interface InputProps {
+    entry: string,
+    text: string,
+    type: string,
+    value: any,
+    validateForm: any,
+    register: any
+}
+
+export interface RadioGroupInputProps {
+    entry: string,
+    text: string,
+    value: any,
+    validateForm: any,
+    children: any
+}
+
+export interface RadioInputProps {
+    entry: string,
+    text: string,
+    parent: string,
+    value: any,
+    register: any
+}
+
+export const Input = (props: InputProps) => {
+    return (
+        <>
+            <label htmlFor={props.entry}>{props.text}</label>
+            <input className={(!props.validateForm(props.entry, props.value) ? "invalid " : "") + "u-full-width"}
+                   name={props.entry} type={props.type} id={props.entry}
+                   defaultValue={props.value} ref={props.register}/>
+        </>
+    )
+}
+
+export const RadioGroupInput = (props: RadioGroupInputProps) => {
+    return (
+        <>
+            <label htmlFor={props.entry}
+                   className={(!props.validateForm(props.entry, props.value) ? "invalid-color " : "")}>
+                {props.text}</label>
+            <div id="checkbox-input" className="u-full-width">
+
+                {props.children}
+            </div>
+        </>
+    )
+}
+
+export const RadioInput = (props: RadioInputProps) => {
+
+    return (
+        <>
+            <label htmlFor={props.entry}>{props.text}</label>
+            <input name={props.parent} type="radio" id={props.entry} value={props.entry}
+                   defaultChecked={props.value === props.entry} ref={props.register} onChange={ev => {
+                ev?.target.focus()
+                ev?.target.blur()
+            }}/>
+        </>
+    )
+}
+
+
 export const RegistrationForm = () => {
 
     const {handleSubmit, register} = useForm({mode: "onBlur"});
 
-    const [data, setData] = useState(Inputs);
+    const [data, setData] = useState(HackerInfo);
     const [step, setStep] = useState(1);
 
 
     const onSave = (updated: any) => {
-
         setData(Object.assign(data, updated))
     };
 
@@ -30,7 +94,6 @@ export const RegistrationForm = () => {
 
         if (validateForm()) {
             API.register(data);
-
             return;
         }
 
@@ -99,8 +162,6 @@ export const RegistrationForm = () => {
     const nextStep = () => {
         if (step < 3) setStep(step + 1)
     }
-
-    // console.log(data)
 
     return (
         <form onBlur={handleSubmit(onSave)} onSubmit={onSubmit}>

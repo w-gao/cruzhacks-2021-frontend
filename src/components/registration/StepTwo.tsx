@@ -1,5 +1,5 @@
 import React from "react";
-import {IProps} from "../RegistrationForm";
+import {IProps, RadioGroupInput, RadioInput} from "../RegistrationForm";
 
 export default function StepTwo(props: IProps) {
 
@@ -11,27 +11,13 @@ export default function StepTwo(props: IProps) {
         <React.Fragment>
             <div className="row">
                 <div className="six columns">
-
-                    <label htmlFor="firstHackathon"
-                           className={(!validateForm('firstHackathon', data.firstHackathon) ? "invalid-color " : "")}>
-                        First Hackathon? *
-                    </label>
-                    <div id="checkbox-input" className="u-full-width">
-
-                        <label htmlFor="yes">Yes</label>
-                        <input name="firstHackathon" type="radio" id="yes" value="yes"
-                               defaultChecked={data.firstHackathon === "yes"} ref={register} onChange={ev => {
-                            ev?.target.focus()
-                            ev?.target.blur()
-                        }}/>
-
-                        <label htmlFor="no">No</label>
-                        <input name="firstHackathon" type="radio" id="no" value="no"
-                               defaultChecked={data.firstHackathon === "no"} ref={register} onChange={ev => {
-                            ev?.target.focus()
-                            ev?.target.blur()
-                        }}/>
-                    </div>
+                    <RadioGroupInput entry={"firstHackathon"} text={"First Hackathon? *"}
+                                     value={data.firstHackathon} validateForm={validateForm}>
+                        <RadioInput entry={"yes"} text={"Yes"} parent={"firstHackathon"} value={data.firstHackathon}
+                                    register={register}/>
+                        <RadioInput entry={"no"} text={"No"} parent={"firstHackathon"} value={data.firstHackathon}
+                                    register={register}/>
+                    </RadioGroupInput>
                 </div>
                 <div className="twelve columns">
                     <label htmlFor="whyParticipate">Why do you want to participate? (500 chars) *</label>
@@ -41,7 +27,6 @@ export default function StepTwo(props: IProps) {
                         defaultValue={data.whyParticipate} ref={register}/>
                 </div>
             </div>
-
         </React.Fragment>
     );
 }

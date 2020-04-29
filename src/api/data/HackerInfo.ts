@@ -1,5 +1,5 @@
 
-export interface Inputs {
+export interface HackerInfo {
     firstName: string | undefined,
     lastName: string | undefined,
     age: number | undefined,
@@ -16,7 +16,7 @@ export interface Inputs {
     accommodations: string | undefined,
 }
 
-export const Inputs: Inputs = {
+export const HackerInfo: HackerInfo = {
     firstName: undefined,
     lastName: undefined,
     age: undefined,
@@ -32,25 +32,4 @@ export const Inputs: Inputs = {
     transportation: undefined,
     accommodations: undefined,
 
-}
-
-
-export const DemographicInfo = {
-    firstName: '',
-    lastName: '',
-    age: '',
-    gender: '',
-    yearOfGraduation: '',
-    ucscStudent: false,
-    collegeAffiliation: ''
-};
-
-export const ExperiencesInfo = {
-    firstHackathon: false,
-    whyParticipate: ''
-}
-
-export const LogisticsInfo = {
-    transportation: '',
-    accommodations: ''
 }

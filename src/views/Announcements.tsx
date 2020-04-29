@@ -21,12 +21,8 @@ export default class Announcements extends React.Component {
             <React.Fragment>
                 <Header/>
                 <Container>
-
                     <h1>Announcements</h1>
-
                     <AnnouncementLoader/>
-
-
                 </Container>
             </React.Fragment>
         )

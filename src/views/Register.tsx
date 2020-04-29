@@ -32,17 +32,11 @@ export default class Register extends React.Component<IProps, IState> {
 
         return (
             <React.Fragment>
-
                 <Header/>
-
                 <Container>
-
                     <h1>Register</h1>
-
                     <RegistrationForm/>
-
                 </Container>
-
             </React.Fragment>
         )
     }

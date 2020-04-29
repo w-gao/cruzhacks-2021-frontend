@@ -1,11 +1,11 @@
+import {HackerInfo} from "./data/HackerInfo";
+
 /**
  * All functions that require interfacing with the API
  *
  * All attributes and methods are static (can be accessed via `API.xxx`)
  * Instantiation is not required for now.
  */
-import {Inputs} from "./data/HackerInfo";
-
 class API {
 
     /**
@@ -20,10 +20,12 @@ class API {
     private static CORS_PROXY = 'https://thingproxy.freeboard.io/fetch/'
 
     /**
+     * Register
      *
-     * @param payload
+     * Returns the registration status.
+     * @param payload a json string that contains registration information.
      */
-    public static register(payload: Inputs): boolean {
+    public static register(payload: HackerInfo): boolean {
 
         console.log('registering...')
         console.log(payload)
@@ -32,12 +34,13 @@ class API {
         // status would then be returned. Here we just assume the data is saved magically.
 
         localStorage.setItem('registered', 'true')
+        localStorage.setItem('regInfo', JSON.stringify(payload))
 
         return true;
     }
 
     /**
-     *
+     * Returns whether the user registered or not.
      */
     public static isRegistered(): boolean {
 
@@ -46,7 +49,7 @@ class API {
     }
 
     /**
-     *
+     * Logs out the current user.
      */
     public static logout(): void {
         localStorage.setItem('registered', 'false')
