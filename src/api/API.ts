@@ -86,7 +86,8 @@ class API {
      */
     public static getAnnouncements(callback: (announcements: null | string[]) => void) {
 
-        this.getFromUrl(callback, this.CORS_PROXY + this.API_ENDPOINT + 'getDB',
+        this.getFromUrl(callback,
+            // this.CORS_PROXY + this.API_ENDPOINT + 'getDB',
             this.LOCAL_PROXY + 'getDB')
     }
 }
